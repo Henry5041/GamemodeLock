@@ -1,0 +1,33 @@
+name: GamemodeLock
+main: org.greensky.gamemodelock.GamemodeLock
+version: 0.0.1
+author: Henry5041
+permissions:
+    gamemodelock.*:
+        description: Allows you to use all game mode lock feature
+        children:
+          gamemodelock.admin: true
+    gamemodelock.admin:
+        description: The feature for administrators
+        default: op
+        children:
+          gamemodelock.bypass: true
+          gamemodelock.command.*: true
+    gamemodelock.bypass:
+        description: bypass game mode lock
+        default: op
+    gamemode.creative:
+        description: Access to creative mode
+        default: false
+    gamemode.survival:
+        description: Access to survival mode
+        default: true
+    gamemodelock.command:
+        description: Access to command
+        default: op
+commands:
+   gamemodelock:
+      description: This is gamemodelock's command.
+      usage: /<command> [player]
+      permission: gamemodelock.command
+      permission-message: You don't have <permission>
